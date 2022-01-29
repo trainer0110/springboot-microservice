@@ -31,7 +31,7 @@ public class StudentController {
 	@GetMapping("/student/{studentId}")
 	public Student getStudentById(@PathVariable String studentId) {
 
-		List<Course> course = template.getForObject("http://course-service/course/" + studentId, List.class);
+		List<Course> course = template.getForObject("http://localhost:1112/course/" + studentId, List.class);
 		Student student = this.studentService.getStudentById(studentId);
 		student.setCourse(course);
 		return student;
